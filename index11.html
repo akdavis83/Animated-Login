@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animated Login</title>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Open+Sans:400,600&display=swap");
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Open Sans", sans-serif;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: #000000;
+    }
+
+    .square {
+      position: relative;
+      height: 500px;
+      width: 500px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .square::after {
+      content: "";
+      position: absolute;
+      border: 2px solid #08c23c;
+      inset: 0;
+      transition: 0.5s;
+    }
+
+    .square > :nth-child(1) {
+      border-radius: 42%;
+      border: 4px solid rgba(12, 183, 29, 0.2);
+      animation: animate 18s linear infinite;
+    }
+
+    .square > :nth-child(2) {
+      border-radius: 44%;
+      border: 4px solid rgba(7, 201, 68, 0.2);
+      animation: animate 18s linear infinite;
+    }
+
+    .square:hover {
+      border: 4px solid rgb(0, 255, 0);
+      filter: drop-shadow(0 0 8px #06bd25);
+    }
+
+    @keyframes animate {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    .login {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: #059305;
+    }
+
+    .login h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .login input {
+      margin: 10px 0;
+      padding: 10px;
+      width: 80%;
+      max-width: 300px;
+      border: none;
+      border-radius: 5px;
+      outline: none;
+    }
+
+    .login button {
+      padding: 10px 20px;
+      border: none;
+      background: #012f07;
+      color: #00ff37;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .login button:hover {
+      background: #f0f0f0;
+    }
+  </style>
+</head>
+<body>
+  <div class="square">
+    <div class="square"></div>
+    <div class="square"></div>
+    <div class="login">
+      <h2>Login</h2>
+      <input type="text" placeholder="Username">
+      <input type="password" placeholder="Password">
+      <button>Submit</button>
+    </div>
+  </div>
+</body>
+</html>
